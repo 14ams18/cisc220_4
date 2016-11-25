@@ -18,7 +18,6 @@ int substring(char *source, int from, int n, char *target) {
                 strcpy(temp, source);
                 for (int i=0; i<n; i++) {
                         target[i] = temp[from+i];
-                        printf("target elems %c", target[i]);
                 }
         }
         else {
@@ -27,3 +26,4 @@ int substring(char *source, int from, int n, char *target) {
         }
         return 0;
 }
+
