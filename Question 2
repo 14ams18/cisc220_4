@@ -1,0 +1,19 @@
+Question 2
+
+
+#include <string.h>
+char* safestrcat (char *a, char *b) {
+       int lengthA = strlen(a);
+       int lengthB = strlen(b);
+      char* newString;
+      strcpy(newString, a);
+      newString= strcat(newString, b);
+      return newString;
+}
+
+
+int substring(char * source, int from, int n, char *target) {
+      for(int i=from; i<from+n; i++) {
+      
+      }
+}
