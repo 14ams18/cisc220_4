@@ -9,7 +9,7 @@ int main() {
         int n = 2;
         char target[n];
         char *c = safeststrcat(a,b);
-        printf("Result of strcat: %s\n", c);
+        printf("Result of safeststrcat: %s\n", c);
         if (substring(a, from, n, target) == 0)
                 printf("Result of substring: %s\n", target);
         else
