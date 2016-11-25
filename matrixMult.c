@@ -17,15 +17,14 @@ int checkDimension (matrix m1, matrix m2, matrix result) {
         };
 }
 
-*int matrixMult (matrix m1, matrix m2, int[][] m1Val, int[][] m2Val, *int resultval) {
-        for ( int i=0; i<m1.height; i++) {
-                for ( int j=0; j<m2.width; j++) {
+void matrixMult (matrix m1, matrix m2, int[][] m1Val, int[][] m2Val, int* resultval) {
+             
+        for ( int j=0; j<m2.width; j++) {
                         for ( int k=0; k<m1.width; k++) {
                                 *resultVal[i][j] += m1Val[i][k] * m2Val[k][j];
                         }
                 }
         }
-        return resultVal;
 }
 
 int main () {
@@ -45,12 +44,13 @@ int main () {
                         fprintf(stderr, "Dimension Mismatch");
                 }
         }
-      int m1Val[m1.height][m1.width];
+        int m1Val[m1.height][m1.width];
         int m2Val[m2.height][m2.width];
         int resultVal[result.height][result.width];
         if (scanf("Input matrix 1 elements separated by spaces: %d", &m1Val[m1.height][m1.width]) && scanf("Input matrix 2 elements separated by spaces: %d", &m2Val[m2.height][m2.width])) {
-        int* rptr = resultVal;
-        rptr = matrixMult(m1, m2, m1Val, m2Val, resultVal);
+        int (*rptr)[result.height][result.width];
+        rptr = resultVal;
+        matrixMult(m1, m2, m1Val, m2Val, rptr);
         }
         else {
                 printf("Invalid Input.");
