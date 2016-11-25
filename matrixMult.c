@@ -7,19 +7,20 @@ typedef struct Matrix {
 } matrix;
 
 int checkDimension (
-        if (m1.width == m2.height)
-                result.width = m2.width;
-                result.height = m1.height;
+        if (int m1.width == int m2.height) (
+                int result.width = m2.width;
+                int result.height = m1.height;
                 return 0;
-        else
+        )
+        else (
                 return -1;
-
+        );
 }
 
 void matrixMult () {
-        for ( i=0; i<m1.height; i++) {
-                for ( j=0; j<m2.width; j++) {
-                        for ( k=0; k<m1.width; k++) {
+        for ( int i=0; i<m1.height; i++) {
+                for ( int j=0; j<m2.width; j++) {
+                        for ( int k=0; k<m1.width; k++) {
                                 resulVal[i][j] += m1Val[i][k] * m2Val[k][j];
                         }
                 }
@@ -27,9 +28,9 @@ void matrixMult () {
 }
 
 int main () {
-        matrix m1 = malloc(sizeof(matrix)+1);
-        matrix m2 = malloc(sizeof(matrix)+1);
-        matrix result = malloc(sizeof(matrix)+1);
+        matrix m1 = (matrix)malloc(sizeof(matrix)+1);
+        matrix m2 = (matrix)malloc(sizeof(matrix)+1);
+        matrix result = (matrix)malloc(sizeof(matrix)+1);
         int input = 1;
         scanf("Insert matrix 1 dimensions separated by a space: %d %d", &m1.height, &m1.width);
         //check if ints
@@ -44,11 +45,11 @@ int main () {
                         printf("Dimension Mismatch. Please re-enter matrix 2 dimensions.");
                         fprintf(stderr, "Dimension Mismatch");
                 }
-                 }
-        int[m1.height][m1.width] m1Val = malloc(sizeof(int)*m1.height*m1.height);
-        int[m2.height][m2.width] m2Val = malloc(sizeof(int)*m2.height*m2.height);
-        int[result.height][result.width] m1Val = malloc(sizeof(int)*result.height*result.height);
-        if (scanf("Input matrix 1 elements separated by spaces: %d", &m1Val[m1.height][m1.witdth]) && scanf("Input matrix 2 elements separated by spaces: %d", &m2Val[m2.height][m2.witdth])) {
+        }
+        int[m1.height][m1.width] m1Val = (int[][])malloc(sizeof(int)*m1.height*m1.height);
+        int[m2.height][m2.width] m2Val = (int[][])malloc(sizeof(int)*m2.height*m2.height);
+        int[result.height][result.width] m1Val = (int[][])malloc(sizeof(int)*result.height*result.height);
+        if (scanf("Input matrix 1 elements separated by spaces: %d", &m1Val[m1.height][m1.width]) && scanf("Input matrix 2 elements separated by spaces: %d", &m2Val[m2.height][m2.width])) {
          matrixMult();
         }
         else {
@@ -57,11 +58,11 @@ int main () {
                 free(m1);
                 free(m2);
                 free(result);
-                exit(-1)
+                exit(-1);
         }
         for(int i = 0; i < result.height; i++) {
             for(int j = 0; j < result.width; j++) {
-                printf("%d ", array[i][j]);
+                printf("%d ", resultVal[i][j]);
             }
             printf("\n");
         }
@@ -70,4 +71,3 @@ int main () {
         free(result);
         return 0;
 }
-
